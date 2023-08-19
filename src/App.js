@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import HomePage from "./Pages/HomePage";
+import AboutPage from "./Pages/AboutPage";
+import CrystalList from "./Components/CrystalList";
+import CrystalDetails from "./Components/CrystalDetails";
+import CrystalForm from "./Components/CrystalForm";
+import NavBar from "./Components/NavBar";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <NavBar />
+        <main>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<AboutPage/>} />
+            <Route path="/crystals" element={<CrystalList/>} />
+            <Route path="/crystals/:id" element={<CrystalDetails/>} />
+            <Route path="/add-crystal" element={<CrystalForm />} />
+          </Routes>
+        </main>
+      </Router>
     </div>
   );
 }
