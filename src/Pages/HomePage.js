@@ -1,17 +1,20 @@
-export default HomePage(){
-    return (
-        <div className="Home">
-          <center>
-  
-            <h1 >Welcome to Rock Dictionary 🗿🪨</h1>
-          </center>
-          <br></br>
-          <center>
-            <img 
-              src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExYzQ3ZWE2YzM5ZDY5MjVjOThiMDVjMDdkOTkxNTg0YjdmOWQyZDk4MSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/pJScUQDqugV9e/giphy.gif"
-              alt="rock-img"
-            ></img>
-          </center>
-        </div>
-      );
-}
+import React from 'react';
+
+const HomePage = () => {
+  return (
+    <div className="Home">
+      <center>
+        <h1>The Crystal World 💎</h1>
+      </center>
+      <br />
+      <center>
+        <img
+          src="https://thumbs.gfycat.com/HomelyCreepyFawn-size_restricted.gif"
+          alt="crystal-img"
+        ></img>
+      </center>
+    </div>
+  );
+};
+
+export default HomePage;

@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <NavBar />
+       
         <main>
           <Routes>
             <Route path="/" element={<HomePage />} />
@@ -20,7 +20,8 @@ function App() {
             <Route path="/crystals/:id" element={<CrystalDetails/>} />
             <Route path="/add-crystal" element={<CrystalForm />} />
           </Routes>
-        </main>
+        </main> 
+        <NavBar />
       </Router>
     </div>
   );
