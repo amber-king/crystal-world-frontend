@@ -11,6 +11,9 @@ const Navbar = () => {
         <li>
           <a href="/crystalform">Let's Add A 💎</a>
         </li>
+        <li>
+<a href="/about">About & More...🤔</a>
+        </li>
       </ul>
     </nav>
   );

@@ -7,10 +7,9 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
 
 /* Navbar.css */
 .navbar {
@@ -42,5 +41,16 @@ code {
   border-color: limegreen; /* Change border color on hover */
 }
 
+/* About Page css */
+.author-button:hover {
+  background-color: limegreen; 
+  border-color: limegreen;
+}
 
-
+.author-button {
+  text-decoration: none;
+  color: black;
+  background-color: transparent;
+  border: 2px solid transparent;
+  transition: background-color 0.3s, border-color 0.3s;
+}
