@@ -1,4 +1,5 @@
-import React from 'react';
+import React from "react";
+
 // import './Navbar.css';
 
 const Navbar = () => {
@@ -9,10 +10,13 @@ const Navbar = () => {
           <a href="/">🏠</a>
         </li>
         <li>
+          <a href="/crystals">💎</a>
+        </li>
+        <li>
           <a href="/crystalform">Let's Add A 💎</a>
         </li>
         <li>
-<a href="/about">About & More...🤔</a>
+          <a href="/about">About & More...🤔</a>
         </li>
       </ul>
     </nav>
