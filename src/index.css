@@ -57,9 +57,7 @@ code {
 
 /* CrystalList.css */
 
-.CrystalList {
-  /* Add your container styling here */
-}
+
 
 .card-container {
   display: flex;
@@ -70,9 +68,7 @@ code {
   border: 1px solid #ccc;
   padding: 16px;
   margin: 10px;
-  width: calc(
-    60% - 20px
-  ); /* Adjust width as needed for three cards per row */
+  width: calc(60% - 20px); /* Adjust width as needed for three cards per row */
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s;
   word-wrap: break-word;
@@ -95,4 +91,19 @@ code {
 .card-link {
   text-decoration: none;
   color: inherit;
+}
+
+.action-button {
+  background-color: transparent; /* Example background color */
+  color: black;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.action-button:hover {
+  background-color: limegreen; /* Example hover background color */
+  cursor: pointer;
 }
