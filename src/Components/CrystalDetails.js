@@ -8,15 +8,15 @@ const CrystalDetails = () => {
   const [crystal, setCrystal] = useState(null);
 
   const lusterMapping = {
-    1: "Vitreous",
-    2: "Pearly",
-    3: "Metallic",
-    4: "Greasy",
-    5: "Resinous",
-    6: "Dull",
-    7: "Silky",
-    8: "Adamantine",
-    9: "Waxy",
+    Vitreous: "Vitreous",
+    Pearly: "Pearly",
+    Metallic: "Metallic",
+    Dull: "Dull",
+    Adamantine: "Adamantine",
+    Greasy: "Greasy",
+    Waxy: "Waxy",
+    Silky: "Silky",
+    Resinous: "Resinous",
   };
 
   useEffect(() => {
@@ -55,7 +55,7 @@ const CrystalDetails = () => {
     <div className="CrystalDetails">
       <h2>{crystal.name} Details</h2>
       <p>Transparency: {crystal.transparency}</p>
-      <p>Luster: {lusterMapping[crystal.luster_id]}</p>
+      <p>Luster: {lusterMapping[crystal.luster_name]}</p>
       <p>Hardness: {crystal.hardness}</p>
       <p>Color: {crystal.color}</p>
 

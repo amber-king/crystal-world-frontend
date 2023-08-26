@@ -1,22 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom"; // Import the Link component
-// import axios from 'axios';
-// import './CrystalList.css'; // Add your own CSS for styling
 
 const CrystalList = () => {
   const [crystals, setCrystals] = useState([]);
 
   // Define the luster mapping object
   const lusterMapping = {
-    1: "Vitreous",
-    2: "Pearly",
-    3: "Metallic",
-    4: "Greasy",
-    5: "Resinous",
-    6: "Dull",
-    7: "Silky",
-    8: "Adamantine",
-    9: "Waxy",
+    Vitreous: "Vitreous",
+    Pearly: "Pearly",
+    Metallic: "Metallic",
+    Dull: "Dull",
+    Adamantine: "Adamantine",
+    Greasy: "Greasy",
+    Waxy: "Waxy",
+    Silky: "Silky",
+    Resinous: "Resinous",
   };
 
   useEffect(() => {
@@ -46,8 +44,7 @@ const CrystalList = () => {
             <div className="card">
               <h3>{crystal.name}</h3>
               <p>Transparency: {crystal.transparency}</p>
-              <p>Luster: {lusterMapping[crystal.luster_id]}</p>{" "}
-              {/* Display luster name */}
+              <p>Luster: {lusterMapping[crystal.luster_name]}</p>{" "}
               <p>Hardness: {crystal.hardness}</p>
               <p>Color: {crystal.color}</p>
             </div>

@@ -10,7 +10,7 @@ const EditCrystal = () => {
     name: "",
     color: "",
     transparency: "",
-    luster_id: "",
+    luster_name: "",
     hardness: "",
   });
 
@@ -18,33 +18,38 @@ const EditCrystal = () => {
   const [hardnessOptions, setHardnessOptions] = useState([]);
 
   useEffect(() => {
+    const fetchCrystal = async () => {
+      try {
+        const response = await fetch(`http://localhost:3001/crystals/${id}`);
+        const data = await response.json();
+        setCrystal(data);
+        setFormData({
+          name: data.name,
+          color: data.color,
+          transparency: data.transparency,
+          luster_name: data.luster_name,
+          hardness: data.hardness,
+        });
+      } catch (error) {
+        console.error("Error fetching crystal:", error);
+      }
+    };
     fetchCrystal();
     fetchLusterOptions();
     fetchHardnessOptions();
-  });
-
-  const fetchCrystal = async () => {
-    try {
-      const response = await fetch(`http://localhost:3001/crystals/${id}`);
-      const data = await response.json();
-      setCrystal(data);
-      setFormData({
-        name: data.name,
-        color: data.color,
-        transparency: data.transparency,
-        luster_id: data.luster_id,
-        hardness: data.hardness,
-      });
-    } catch (error) {
-      console.error("Error fetching crystal:", error);
-    }
-  };
+  }, [id]);
 
   const fetchLusterOptions = async () => {
     try {
       const response = await fetch("http://localhost:3001/luster_options");
       const data = await response.json();
-      setLusterOptions(data);
+
+      if (data.error) {
+        console.error("Error fetching luster options:", data.error);
+        return;
+      }
+
+      setLusterOptions(data.lusterOptions);
     } catch (error) {
       console.error("Error fetching luster options:", error);
     }
@@ -54,7 +59,13 @@ const EditCrystal = () => {
     try {
       const response = await fetch("http://localhost:3001/hardness_options");
       const data = await response.json();
-      setHardnessOptions(data);
+
+      if (data.error) {
+        console.error("Error fetching hardness options:", data.error);
+        return;
+      }
+
+      setHardnessOptions(data.hardnessOptions);
     } catch (error) {
       console.error("Error fetching hardness options:", error);
     }
@@ -91,10 +102,9 @@ const EditCrystal = () => {
   if (!crystal) {
     return <div>Loading...</div>;
   }
-
   return (
     <div className="EditCrystal">
-      <h2>Edit {crystal.name}</h2>
+      <h2>Edit {crystal?.name}</h2>
       <form onSubmit={handleSubmit}>
         <label>
           Name:
@@ -132,14 +142,14 @@ const EditCrystal = () => {
         <label>
           Luster:
           <select
-            name="luster_id"
-            value={formData.luster_id}
+            name="luster_name"
+            value={formData.luster_name}
             onChange={handleChange}
           >
             <option value="">Select Luster</option>
             {lusterOptions.map((luster) => (
-              <option key={luster.id} value={luster.id}>
-                {luster.option_name}
+              <option key={luster} value={luster}>
+                {luster}
               </option>
             ))}
           </select>
@@ -153,8 +163,8 @@ const EditCrystal = () => {
           >
             <option value="">Select Hardness</option>
             {hardnessOptions.map((hardness) => (
-              <option key={hardness.id} value={hardness.rating}>
-                {hardness.rating}
+              <option key={hardness} value={hardness}>
+                {hardness}
               </option>
             ))}
           </select>
@@ -166,4 +176,3 @@ const EditCrystal = () => {
 };
 
 export default EditCrystal;
-
