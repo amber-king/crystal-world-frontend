@@ -17,6 +17,7 @@ const CrystalList = () => {
     Resinous: "Resinous",
   };
 
+
   useEffect(() => {
     fetchCrystals();
   }, []);

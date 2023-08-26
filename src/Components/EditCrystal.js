@@ -14,8 +14,20 @@ const EditCrystal = () => {
     hardness: "",
   });
 
-  const [lusterOptions, setLusterOptions] = useState([]);
-  const [hardnessOptions, setHardnessOptions] = useState([]);
+  // Define the luster and hardness options directly in the component
+  const lusterOptions = [
+    "Vitreous",
+    "Pearly",
+    "Metallic",
+    "Dull",
+    "Adamantine",
+    "Greasy",
+    "Waxy",
+    "Silky",
+    "Resinous",
+  ];
+
+  const hardnessOptions = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
 
   useEffect(() => {
     const fetchCrystal = async () => {
@@ -34,42 +46,9 @@ const EditCrystal = () => {
         console.error("Error fetching crystal:", error);
       }
     };
+
     fetchCrystal();
-    fetchLusterOptions();
-    fetchHardnessOptions();
   }, [id]);
-
-  const fetchLusterOptions = async () => {
-    try {
-      const response = await fetch("http://localhost:3001/luster_options");
-      const data = await response.json();
-
-      if (data.error) {
-        console.error("Error fetching luster options:", data.error);
-        return;
-      }
-
-      setLusterOptions(data.lusterOptions);
-    } catch (error) {
-      console.error("Error fetching luster options:", error);
-    }
-  };
-
-  const fetchHardnessOptions = async () => {
-    try {
-      const response = await fetch("http://localhost:3001/hardness_options");
-      const data = await response.json();
-
-      if (data.error) {
-        console.error("Error fetching hardness options:", data.error);
-        return;
-      }
-
-      setHardnessOptions(data.hardnessOptions);
-    } catch (error) {
-      console.error("Error fetching hardness options:", error);
-    }
-  };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -102,6 +81,7 @@ const EditCrystal = () => {
   if (!crystal) {
     return <div>Loading...</div>;
   }
+
   return (
     <div className="EditCrystal">
       <h2>Edit {crystal?.name}</h2>
@@ -109,20 +89,20 @@ const EditCrystal = () => {
         <label>
           Name:
           <input
+            type="text"
             name="name"
             value={formData.name}
             onChange={handleChange}
-            placeholder="Crystal name here"
             required
           />
         </label>
         <label>
           Color:
           <input
+            type="text"
             name="color"
             value={formData.color}
             onChange={handleChange}
-            placeholder="Crystal color here"
             required
           />
         </label>
@@ -132,6 +112,7 @@ const EditCrystal = () => {
             name="transparency"
             value={formData.transparency}
             onChange={handleChange}
+            required
           >
             <option value="">Select Transparency</option>
             <option value="transparent">Transparent</option>
