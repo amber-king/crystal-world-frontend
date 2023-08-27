@@ -17,25 +17,16 @@ const About = () => {
         <div className="author-description">
           <h2>Hi, I'm Amber King 😁👋🏾</h2>
           <bold>
-            <h1>
-              REDO THIS ABOUT PAGE TO MATCH THE PROJECT WITH DETAILS OF POSTGRES
-              WORKINGS AND CRUD FUNCTIONALITIES!
-            </h1>
             <h3>
-              who you are? what are the buildings of the app? -here-
-              {/* Currently enrolled and finishing up my roll as a fellow at Pursuit
-            Fellowship I created this application to work on my Full Stack Web
-            Design skills. There was much focus on the backend work and
-            research alongside CSS practice and refining, both which I desire
-            to have as career focuses. Also, it was much time used to
-            understand the work and data flow of the frontend and backend. */}
-              <h3>
-                Say what the app is and then list its functionalities below --v
-                <p>will list the CRUD abilites here</p>
-                -> keep this Each of the pages to navigate through have a brief
-                description of what can be found there and how to use each page.
-                Also, explains why some results do not appear.
-              </h3>
+              Currently enrolled and finishing up my role as a fellow at Pursuit
+              Fellowship I created this application to work on my Full Stack Web
+              Design skills. The focus of this application was to create a CRUD
+              informational site about crystals thats user-friendly, with simple
+              and clean design along with an switch to dark mode to minimize eye
+              strain.Also,I expanded on understanding how the data flow through
+              backend and frontend fully works and re-learning how to manage and
+              create my own database via Postgres SQL with much reach to support
+              the data shared on this site.
               <p>
                 Below is links to all my contact information, for any questions
                 or suggestions for this or future projects, Thanks and I hope
