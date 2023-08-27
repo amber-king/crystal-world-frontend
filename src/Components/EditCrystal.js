@@ -12,6 +12,7 @@ const EditCrystal = () => {
     transparency: "",
     luster_name: "",
     hardness: "",
+    healing_features: "",
   });
 
   // Define the luster and hardness options directly in the component
@@ -150,7 +151,25 @@ const EditCrystal = () => {
             ))}
           </select>
         </label>
-        <button type="submit">Save</button>
+        <label>
+          Healing Features:
+          <textarea
+            name="healing_features"
+            value={formData.healing_features}
+            onChange={handleChange}
+            rows="4"
+            cols="50"
+          />
+        </label>
+        <div className="form-buttons">
+          <button type="submit">Save</button>
+          <button
+            className="cancel-button"
+            onClick={() => navigate(`/crystals/${id}`)}
+          >
+            Cancel
+          </button>
+        </div>
       </form>
     </div>
   );

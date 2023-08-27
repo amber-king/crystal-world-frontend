@@ -46,6 +46,7 @@ const CrystalDetails = () => {
       <p>Transparency: {crystal.transparency}</p>
       <p>Luster: {crystal.luster_name}</p> <p>Hardness: {crystal.hardness}</p>
       <p>Color: {crystal.color}</p>
+      <p>Healing Properties: {crystal.healing_features}</p>
       <div className="actions">
         <button
           onClick={() => navigate(`/crystals/${id}/edit`)}

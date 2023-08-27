@@ -17,7 +17,6 @@ const CrystalList = () => {
     Resinous: "Resinous",
   };
 
-
   useEffect(() => {
     fetchCrystals();
   }, []);
@@ -48,6 +47,7 @@ const CrystalList = () => {
               <p>Luster: {lusterMapping[crystal.luster_name]}</p>{" "}
               <p>Hardness: {crystal.hardness}</p>
               <p>Color: {crystal.color}</p>
+              <p>Healing Properties: {crystal.healing_features}</p>
             </div>
           </Link>
         ))}
