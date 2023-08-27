@@ -8,6 +8,7 @@ import CrystalDetails from "./Components/CrystalDetails";
 import CrystalForm from "./Components/CrystalForm";
 import NavBar from "./Components/NavBar";
 import EditCrystal from "./Components/EditCrystal";
+import VocabularyPage from "./Pages/VocabularyPage";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -49,6 +50,7 @@ function App() {
             <Route path="/crystals/:id" element={<CrystalDetails />} />
             <Route path="/crystalform" element={<CrystalForm />} />
             <Route path="/crystals/:id/edit" element={<EditCrystal />} />
+            <Route path="/vocabulary" element={<VocabularyPage />} />
           </Routes>
         </main>
         <NavBar />

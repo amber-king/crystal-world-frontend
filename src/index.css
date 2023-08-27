@@ -3,12 +3,6 @@ body {
   font-family: cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* background-color: whitesmoke; */
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
 }
 
 /* Navbar.css */
@@ -16,7 +10,7 @@ code {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: transparent; /* Set the background to transparent */
+  background-color: transparent;
   padding: 1rem;
 }
 
@@ -29,34 +23,28 @@ code {
 .nav-list li a {
   text-decoration: none;
   color: black;
-  background-color: transparent; /* Set the button background to transparent */
-  border: 2px solid transparent; /* Set border to transparent */
   padding: 0.5rem 1rem;
+  border: 2px solid transparent;
   border-radius: 0.5rem;
-  transition: background-color 0.3s, border-color 0.3s; /* Add transition for hover effect */
+  transition: background-color 0.3s, border-color 0.3s;
 }
 
 .nav-list li a:hover {
-  background-color: limegreen; /* Change background color on hover */
-  border-color: limegreen; /* Change border color on hover */
-}
-
-/* About Page css */
-.author-button:hover {
   background-color: limegreen;
   border-color: limegreen;
 }
 
+/* About Page css */
+.author-button:hover,
 .author-button {
   text-decoration: none;
   color: black;
-  background-color: transparent;
+  padding: 0.5rem 1rem;
   border: 2px solid transparent;
   transition: background-color 0.3s, border-color 0.3s;
 }
 
 /* CrystalList.css */
-
 .card-container {
   display: flex;
   flex-wrap: wrap;
@@ -66,7 +54,7 @@ code {
   border: 1px solid #ccc;
   padding: 16px;
   margin: 10px;
-  width: calc(60% - 20px); /* Adjust width as needed for three cards per row */
+  width: calc(60% - 20px);
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s;
   word-wrap: break-word;
@@ -85,14 +73,13 @@ code {
   margin: 5px 0;
 }
 
-/* Optional: Styling for the link */
 .card-link {
   text-decoration: none;
   color: inherit;
 }
 
 .action-button {
-  background-color: transparent; /* Example background color */
+  background-color: transparent;
   color: black;
   border: none;
   padding: 8px 16px;
@@ -102,9 +89,10 @@ code {
 }
 
 .action-button:hover {
-  background-color: limegreen; /* Example hover background color */
+  background-color: limegreen;
   cursor: pointer;
 }
+
 .CrystalForm {
   max-width: 400px;
   margin: 0 auto;
@@ -172,8 +160,8 @@ code {
 .cancel-button:hover {
   background-color: #999;
 }
-/* App.css (or your preferred CSS file) */
 
+/* App.css (or your preferred CSS file) */
 .Home {
   display: flex;
   align-items: center;
@@ -183,28 +171,31 @@ code {
   padding: 20px;
 }
 
-.Left-Side {
+.Left-Side,
+.Right-Side {
   flex: 1;
-  padding-right: 20px;
+  padding: 20px;
 }
 
 .Right-Side {
-  flex: 1;
-  display: flex;
-  justify-content: flex-end;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .CrystalImage {
-  width: 40px; /* Adjust the width as needed */
+  width: 40px;
   height: auto;
-  margin-top: 10px; /* Add some spacing between the title and image */
+  margin-top: 10px;
 }
+
 .Title {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 20px; /* Adjust the margin as needed */
+  margin-top: 20px;
 }
+
 .EditCrystal {
   width: 70%;
   margin: auto;
@@ -274,16 +265,22 @@ code {
 
 .dark-mode {
   background-color: lightgrey;
-  color:black;
-}
-/* Light Mode Styles */
-body {
-  background-color: #fff;
-  color: white;
+  color: black;
 }
 
-/* Dark Mode Styles */
-body.dark-mode {
-  background-color: #1f1f1f;
-  color: #fff;
+/* Vocabulary Page CSS */
+.Vocabulary-Card {
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.Vocabulary-Card h4 {
+  margin-top: 0;
+}
+
+.Vocabulary-Card p {
+  margin-bottom: 0;
 }

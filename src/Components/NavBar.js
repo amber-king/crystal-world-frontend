@@ -10,13 +10,17 @@ const Navbar = () => {
           <a href="/">🏠</a>
         </li>
         <li>
+          <a href="/vocabulary">Vocabulary 📖</a>
+        </li>
+        <li>
           <a href="/crystals">💎</a>
         </li>
+       
         <li>
           <a href="/crystalform">Let's Add A 💎</a>
         </li>
         <li>
-          <a href="/about">About & More...🤔</a>
+          <a href="/about">Who's the Site Developer?...🤔</a>
         </li>
       </ul>
     </nav>
