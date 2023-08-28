@@ -1,9 +1,10 @@
+// TODO: http://localhost:3000/about - gives a brief background on the site developer & their contact information
+
+// Imports
 import React from "react";
 
-// this page gives a peak at who the developer is, their contact info & what the site has to offer
-
 const About = () => {
-  const emailAmber = "amberking@pursuit.org";
+  const emailAmber = "amberking@pursuit.org"; // sets the email address for easier application into code
 
   return (
     <div className="about-page">
@@ -65,4 +66,5 @@ const About = () => {
   );
 };
 
+// Exports
 export default About;

@@ -1,16 +1,25 @@
+// TODO: holds all routes & toggle dark mode - light mode button functionality
+
+// Imports
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import React, { useState, useEffect } from "react";
+
+// Pages
 import HomePage from "./Pages/HomePage";
 import AboutPage from "./Pages/AboutPage";
+import VocabularyPage from "./Pages/VocabularyPage";
+
+// Componenets
 import CrystalList from "./Components/CrystalList";
 import CrystalDetails from "./Components/CrystalDetails";
 import CrystalForm from "./Components/CrystalForm";
 import NavBar from "./Components/NavBar";
 import EditCrystal from "./Components/EditCrystal";
-import VocabularyPage from "./Pages/VocabularyPage";
 
 function App() {
+  // TODO: dark mode functionality - via a toggle button found on the top of every page on the site
+  // light mode - a off white setting & dark mode - a light grey setting
   const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
@@ -30,6 +39,7 @@ function App() {
     setDarkMode(!darkMode);
   };
 
+  //  return with all routes for application & hookes on dark mode toggle button
   return (
     <div className={`App ${darkMode ? "dark-mode" : "light-mode"}`}>
       <button

@@ -1,3 +1,6 @@
+// TODO: general navbar - located at the bottom of screen with all buttons to different pages of the site
+
+// Imports
 import React from "react";
 
 const Navbar = () => {
@@ -25,4 +28,5 @@ const Navbar = () => {
   );
 };
 
+// Exports
 export default Navbar;

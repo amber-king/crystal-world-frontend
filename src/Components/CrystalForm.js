@@ -1,3 +1,6 @@
+// TODO: http://localhost:3000/crystalform - allows user to add a new crystal w/ new form
+
+// Imports
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -11,9 +14,9 @@ const CrystalForm = () => {
     luster_name: "",
     hardness: "",
     healing_features: "",
-  });
+  }); // state to handle fields for the new crystal form
 
-  // Define the luster and hardness options directly in the component
+  // Defining the luster and hardness options - same data as in the backend
   const lusterOptions = [
     "Vitreous",
     "Pearly",
@@ -28,6 +31,7 @@ const CrystalForm = () => {
 
   const hardnessOptions = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
 
+  // handle for adding/ making a copy of formatted new crystal
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData({
@@ -36,10 +40,12 @@ const CrystalForm = () => {
     });
   };
 
+  // POST of a new crystal submit handle
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
+      // calls a POST request to all crystal page
       const response = await fetch("http://localhost:3001/crystals/", {
         method: "POST",
         headers: {
@@ -48,17 +54,16 @@ const CrystalForm = () => {
         body: JSON.stringify(formData),
       });
 
-      // Simulate API call or data processing
-      // You can replace this with your actual API call
-      // For this example, we will just navigate back to the home page
+      // POST is all good - return back to all crystals page - otherwise return error
       if (response.ok) {
-        navigate("/crystals");
+        navigate("/crystals"); //navigation back to the home page
       }
     } catch (error) {
       console.error("Error submitting form:", error);
     }
   };
 
+  // return of full submit form for one crystal
   return (
     <div className="CrystalForm">
       <h2>Add a New Crystal</h2>
@@ -149,5 +154,7 @@ const CrystalForm = () => {
     </div>
   );
 };
+
+// Exports
 
 export default CrystalForm;

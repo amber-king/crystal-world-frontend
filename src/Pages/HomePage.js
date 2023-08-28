@@ -1,3 +1,6 @@
+// TODO: http://localhost:3000/ - home page w/ a description of the sites purpose and user functionality avaiable
+
+// Imports
 import React from "react";
 
 const HomePage = () => {
@@ -45,10 +48,10 @@ const HomePage = () => {
             <br />- <b>U</b>pdate a crystal by clicking on the crystal and
             having the option to edit the selected crystal via edit button,
             which will redirect you to an edit form to modify and save changes
-            or if you change your mind just cancel your options<br />-{" "}
-            <b>D</b>elete a crystal, once crystal is selected, you can delete
-            the crystal via delete button and get redirected to updated all
-            crystal list.
+            or if you change your mind just cancel your options
+            <br />- <b>D</b>elete a crystal, once crystal is selected, you can
+            delete the crystal via delete button and get redirected to updated
+            all crystal list.
           </p>
           <p>
             <b>
@@ -62,5 +65,7 @@ const HomePage = () => {
     </div>
   );
 };
+
+// Exports
 
 export default HomePage;

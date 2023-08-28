@@ -1,10 +1,13 @@
+// TODO: http://localhost:3000/crystals - shows all crystals - both pre-made and added in alongside edits of the crystals
+
+// Import
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom"; // Import the Link component
+import { Link } from "react-router-dom"; 
 
 const CrystalList = () => {
-  const [crystals, setCrystals] = useState([]);
+  const [crystals, setCrystals] = useState([]); // state to handle all crystal data array
 
-  // Define the luster mapping object
+  // Define the luster options mapping object
   const lusterMapping = {
     Vitreous: "Vitreous",
     Pearly: "Pearly",
@@ -17,20 +20,23 @@ const CrystalList = () => {
     Resinous: "Resinous",
   };
 
+  // ensures the fetchCrystals function is called once after the component in initially renders
   useEffect(() => {
     fetchCrystals();
   }, []);
 
+  // fetchs all crystals - otherwise return an error
   const fetchCrystals = async () => {
     try {
       const response = await fetch("http://localhost:3001/crystals/"); // Replace with your API endpoint
       const data = await response.json();
       setCrystals(data);
-    } catch (error) {
+    } catch (error) { 
       console.error("Error fetching crystals:", error);
     }
   };
 
+  // returns crystals cards with fetech data
   return (
     <div className="CrystalList">
       <h2>All Crystals</h2>
@@ -56,4 +62,5 @@ const CrystalList = () => {
   );
 };
 
+// Exports
 export default CrystalList;

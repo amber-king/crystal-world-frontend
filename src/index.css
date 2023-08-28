@@ -93,6 +93,7 @@ body {
   cursor: pointer;
 }
 
+/*  Crystal form css  */
 .CrystalForm {
   max-width: 400px;
   margin: 0 auto;
@@ -161,7 +162,7 @@ body {
   background-color: #999;
 }
 
-/* App.css (or your preferred CSS file) */
+/* Home page css  */
 .Home {
   display: flex;
   align-items: center;
@@ -196,6 +197,7 @@ body {
   margin-top: 20px;
 }
 
+/* Edit crystal css */
 .EditCrystal {
   width: 70%;
   margin: auto;
@@ -249,6 +251,7 @@ body {
   background-color: #999;
 }
 
+/* Toggle button css - dark mode & light mode button */
 .dark-mode-toggle {
   background-color: #333;
   color: #fff;
@@ -285,7 +288,7 @@ body {
   margin-bottom: 0;
 }
 
-/* Add or modify these styles in your existing CSS file */
+/* About Site Developer css */
 
 .about-page {
   display: flex;
@@ -295,32 +298,32 @@ body {
 }
 
 .author-image {
-  width: 150px; /* Adjust image size as needed */
-  border-radius: 50%; /* Make the image circular */
+  width: 150px;
+  border-radius: 50%;
 }
 
 .author-description {
-  margin-left: 20px; /* Add spacing between the image and description */
+  margin-left: 20px;
 }
 
 .author-description h2 {
-  margin: 10px 0; /* Add spacing around the heading */
+  margin: 10px 0;
 }
 
 .author-description h3 {
-  font-weight: normal; /* Reset font weight */
+  font-weight: normal;
 }
 
 .author-buttons {
   margin-top: 20px;
   display: flex;
-  justify-content: center; /* Horizontally center the buttons */
-  align-items: center; /* Vertically center the buttons */
+  justify-content: center;
+  align-items: center;
   gap: 10px;
 }
 
 .author-button {
-  display: block; /* Make the links a block-level element */
+  display: block;
   width: 120px;
   margin: 5px 0;
   padding: 6px 12px;
@@ -335,21 +338,10 @@ body {
 }
 
 .author-button:hover {
-  background-color: #999; /* Change background color on hover */
+  background-color: #999;
 }
 
-/* You might also need to adjust other styles based on your design preferences */
-/* Default styles */
-
-/* Styles for screens with a maximum width of 1200px (e.g., larger tablets) */
-@media (max-width: 1200px) {
-  /* Adjust styles for larger tablets */
-}
-
-/* Styles for screens with a maximum width of 992px (e.g., smaller tablets) */
-@media (max-width: 992px) {
-  /* Adjust styles for smaller tablets */
-}
+/* All media query css */
 
 /* Styles for screens with a maximum width of 768px (e.g., landscape smartphones and small screens) */
 @media (max-width: 768px) {
@@ -366,11 +358,4 @@ body {
   .CrystalImage {
     max-width: 80%;
   }
-
-  /* Adjust other styles as needed */
-}
-
-/* Styles for screens with a maximum width of 480px (e.g., portrait smartphones) */
-@media (max-width: 480px) {
-  /* Adjust styles for smartphones */
 }
