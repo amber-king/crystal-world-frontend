@@ -2,7 +2,7 @@
 
 ## What is the crystal world? 🤔
 
-## Frontend Links ⤵️
+### Frontend Links ⤵️
 
 - [Frontend Netlify Link](TBA) <br>
 
