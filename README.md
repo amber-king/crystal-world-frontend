@@ -1,70 +1,27 @@
-# Getting Started with Create React App
+# The Crystal World 💎
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## What is the crystal world? 🤔
 
-## Available Scripts
+## Frontend Links ⤵️
 
-In the project directory, you can run:
+- [Frontend Netlify Link](TBA) <br>
 
-### `npm start`
+- [Backend Github Repo](https://github.com/amber-king/crystal-world-backend)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<i>This is the <b>frontend</b> portion of The Crystal World application.</i>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+This application provides information about a variety of crystals. You are welcome to explore not only the <b>scientific</b> breakdown of a crystal but learn some of the <b>healing properties</b> of the crystals.
+<br>
 
-### `npm test`
+<b>⚠️ Disclaimer:</b> This site is fully for learning purposes with no intent to influence your beliefs <b><i>(so please take what you need and leave what you don't).</i></b>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+You will learn about the following features of crystals : <i>the transparency, luster, and hardness levels using the Mohs scale and Healing properties/functions</i>. <br>
 
-### `npm run build`
+Included in this application you the user will be able to do <b>CRUD</b> functionality through the site, which consist of the following:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- <b>C</b>reate/ add a new crystal with all information via the add a crystal form
+- <b>R</b>ead about all crystals preset into the database, alongside the crystals you add can be seen
+- <b>U</b>pdate a crystal by clicking on the crystal and having the option to edit the selected crystal via edit button, which will redirect you to an edit form to modify and save changes or if you change your mind just cancel your options
+- <b>D</b>elete a crystal, once crystal is selected, you can delete the crystal via delete button and get redirected to updated all crystal list.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<hr>
