@@ -1,6 +1,3 @@
-// TODO: http://localhost:3000/vocabulary - this page contains key terms found on the site - helps with user understanding the site better
-
-// Imports
 import React from "react";
 
 const VocabularyPage = () => {
@@ -149,7 +146,5 @@ const VocabularyPage = () => {
     </div>
   );
 };
-
-// Exports
 
 export default VocabularyPage;

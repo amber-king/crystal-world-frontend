@@ -1,4 +1,3 @@
-// TODO: http://localhost:3000/crystals/${id}/edit - allows user to edit crystal via edit button
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
@@ -6,7 +5,7 @@ const EditCrystal = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const [crystal, setCrystal] = useState(null); // state for the selected crystal modification
+  const [crystal, setCrystal] = useState(null);
   const [formData, setFormData] = useState({
     name: "",
     color: "",
@@ -14,9 +13,9 @@ const EditCrystal = () => {
     luster_name: "",
     hardness: "",
     healing_features: "",
-  }); // state for edit modification
+  });
 
-  // Define the luster name and hardness options - based on backend data
+  // Define the luster and hardness options directly in the component
   const lusterOptions = [
     "Vitreous",
     "Pearly",
@@ -31,7 +30,6 @@ const EditCrystal = () => {
 
   const hardnessOptions = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
 
-  // fetchs selected crystal data w/ edit form to modify form -
   useEffect(() => {
     const fetchCrystal = async () => {
       try {
@@ -53,8 +51,6 @@ const EditCrystal = () => {
     fetchCrystal();
   }, [id]);
 
-  // handles the update change via edit form
-
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData({
@@ -63,7 +59,6 @@ const EditCrystal = () => {
     });
   };
 
-  // PUT/UPDATE/sends updated crystal information
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -76,7 +71,6 @@ const EditCrystal = () => {
         body: JSON.stringify(formData),
       });
 
-      // if update is good - user is navigated back to the selected crystal details - otherwise return an error
       if (response.ok) {
         navigate(`/crystals/${id}`);
       }
@@ -85,12 +79,10 @@ const EditCrystal = () => {
     }
   };
 
-  // loading page of crystal is not present
   if (!crystal) {
     return <div>Loading...</div>;
   }
 
-  // return with edit form - similiar to crystal new form for adding a crystal
   return (
     <div className="EditCrystal">
       <h2>Edit {crystal?.name}</h2>
@@ -182,7 +174,5 @@ const EditCrystal = () => {
     </div>
   );
 };
-
-// Exports
 
 export default EditCrystal;
