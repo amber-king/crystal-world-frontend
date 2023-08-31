@@ -8,6 +8,8 @@
 
 - [Backend Github Repo](https://github.com/amber-king/crystal-world-backend)
 
+-[Backend Heroku Deploy Link](https://crystal-world-backend-f03cc002ba51.herokuapp.com/) <i>only homepage route - frontend holds most the functionality for data made via Postgressql</i>ƒ
+
 <i>This is the <b>frontend</b> portion of The Crystal World application.</i>
 
 This application provides information about a variety of crystals. You are welcome to explore not only the <b>scientific</b> breakdown of a crystal but learn some of the <b>healing properties</b> of the crystals.

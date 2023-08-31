@@ -46,7 +46,7 @@ const CrystalForm = () => {
 
     try {
       // calls a POST request to all crystal page
-      const response = await fetch("http://localhost:3001/crystals/", {
+      const response = await fetch("https://crystal-world-backend-f03cc002ba51.herokuapp.com//crystals/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -28,7 +28,7 @@ const CrystalList = () => {
   // fetchs all crystals - otherwise return an error
   const fetchCrystals = async () => {
     try {
-      const response = await fetch("http://localhost:3001/crystals/"); // Replace with your API endpoint
+      const response = await fetch("https://crystal-world-backend-f03cc002ba51.herokuapp.com//crystals/"); // Replace with your API endpoint
       const data = await response.json();
       setCrystals(data);
     } catch (error) { 
