@@ -10,7 +10,7 @@ const CrystalDetails = () => {
   useEffect(() => {
     const fetchCrystal = async () => {
       try {
-        const response = await fetch(`https://crystal-world-backend-f03cc002ba51.herokuapp.com/crystals/${id}`);
+        const response = await fetch(`http://localhost:3001/crystals/${id}`);
         const data = await response.json();
         setCrystal(data);
       } catch (error) {
