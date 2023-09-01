@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-
-
+import crystalsData from "../crystalsData";
 
 const CrystalDetails = () => {
   const { id } = useParams();
@@ -10,29 +9,41 @@ const CrystalDetails = () => {
   const [crystal, setCrystal] = useState(null);
 
   useEffect(() => {
-    const fetchCrystal = async () => {
-      try {
-        const response = await fetch(`http://localhost:3001/crystals/${id}`);
-        const data = await response.json();
-        setCrystal(data);
-      } catch (error) {
-        console.error("Error fetching crystal:", error);
-      }
-    };
+    const selectedCrystal = crystalsData.find(
+      (crystal) => crystal.id === parseInt(id)
+    );
 
-    fetchCrystal(); // Call the fetchCrystal function inside useEffect
+    if (selectedCrystal) {
+      setCrystal(selectedCrystal);
+    } else {
+      console.error("Crystal not found");
+    }
+    // const fetchCrystal = async () => {
+    //   try {
+    //     const response = await fetch(`http://localhost:3001/crystals/${id}`);
+    //     const data = await response.json();
+    //     setCrystal(data);
+    //   } catch (error) {
+    //     console.error("Error fetching crystal:", error);
+    //   }
+    // };
+
+    // fetchCrystal(); // Call the fetchCrystal function inside useEffect
   }, [id]); // Add id to the dependency array
- 
 
   const handleDelete = async () => {
     try {
-      const response = await fetch(`http://localhost:3001/crystals/${id}`, {
-        method: "DELETE",
-      });
+      const updateCrystals = crystalsData.filter(
+        (crystal) => crystal.id !== parseInt(id)
+      );
+      // const response = await fetch(`http://localhost:3001/crystals/${id}`, {
+      //   method: "DELETE",
+      // });
 
-      if (response.ok) {
-        navigate("/crystals");
-      }
+      // if (response.ok) {
+      setCrystal(updateCrystals);
+      navigate("/crystals");
+      // }s
     } catch (error) {
       console.error("Error deleting crystal:", error);
     }

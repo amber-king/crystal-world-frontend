@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom"; // Import the Link component
-
+import crystalsData from "../crystalsData";
 
 const CrystalList = () => {
-  const [crystals, setCrystals] = useState([]);
+  const [crystals, setCrystals] = useState(crystalsData);
 
   // Define the luster mapping object
   const lusterMapping = {
@@ -19,18 +19,18 @@ const CrystalList = () => {
   };
 
   useEffect(() => {
-    fetchCrystals();
+    // fetchCrystals();
   }, []);
 
-  const fetchCrystals = async () => {
-    try {
-      const response = await fetch("http://localhost:3001/crystals/"); 
-      const data = await response.json();
-      setCrystals(data);
-    } catch (error) {
-      console.error("Error fetching crystals:", error);
-    }
-  };
+  // const fetchCrystals = async () => {
+  //   try {
+  //     const response = await fetch("http://localhost:3001/crystals/");
+  //     const data = await response.json();
+  //     setCrystals(data);
+  //   } catch (error) {
+  //     console.error("Error fetching crystals:", error);
+  //   }
+  // };
 
   return (
     <div className="CrystalList">

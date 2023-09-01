@@ -1,7 +1,9 @@
 // mockData.js - for CRUD functionality to work on this frontend
+// ! backend deploy link is not suitable to grasp the data and this frontend was strictly fetching from the LOCAL backend - this makes the frontend work on deployment end
 
 const crystalsData = [
   {
+    id: 1,
     name: "Pyrite",
     transparency: "Opaque",
     hardness: 6,
@@ -11,6 +13,7 @@ const crystalsData = [
       "Promotes confidence and self-worth. Enhances mental clarity and focus. Attracts abundance and prosperity. Shields against negative energy.",
   },
   {
+    id: 2,
     name: "Quartz",
     transparency: "Transparent",
     hardness: 7,
@@ -20,6 +23,7 @@ const crystalsData = [
       "Amplifies energy and intentions. Enhances spiritual growth and meditation. Balances and aligns chakras. Facilitates communication with higher realms.",
   },
   {
+    id: 3,
     name: "Amber",
     transparency: "Translucent",
     hardness: 2,
@@ -29,6 +33,7 @@ const crystalsData = [
       "Purifies and cleanses energy. Offers protection from negative influences. Aids in emotional healing and self-expression. Enhances creativity and vitality.",
   },
   {
+    id: 4,
     name: "Talc",
     transparency: "Opaque",
     hardness: 1,
@@ -38,6 +43,7 @@ const crystalsData = [
       "Promotes peaceful and calming energy. Supports emotional healing and self-acceptance. Aids in meditation and relaxation. Encourages sensitivity and empathy.",
   },
   {
+    id: 5,
     name: "Nepheline",
     transparency: "Translucent",
     hardness: 5,
@@ -47,6 +53,7 @@ const crystalsData = [
       "Enhances psychic abilities and intuition. Balances and aligns energy centers. Facilitates communication and self-expression. Supports dream work and journeying.",
   },
   {
+    id: 6,
     name: "Diamond",
     transparency: "Transparent",
     hardness: 10,
@@ -56,6 +63,7 @@ const crystalsData = [
       "Amplifies positive energy and intentions. Enhances inner strength and courage. Promotes clarity of thought and purity of intention. Balances and aligns all chakras.",
   },
   {
+    id: 7,
     name: "Gypsum",
     transparency: "Transparent",
     hardness: 2,
@@ -65,6 +73,7 @@ const crystalsData = [
       "Promotes emotional healing and tranquility. Aids in meditation and spiritual insight. Enhances communication and intuition. Clears energy blockages and negativity.",
   },
   {
+    id: 8,
     name: "Apatite",
     transparency: "Transparent",
     hardness: 5,
@@ -74,6 +83,7 @@ const crystalsData = [
       "Stimulates personal growth and self-expression. Enhances creativity and motivation. Supports communication and self-confidence. Aids in spiritual development and meditation.",
   },
   {
+    id: 9,
     name: "Limonite",
     transparency: "Opaque",
     hardness: 5,
