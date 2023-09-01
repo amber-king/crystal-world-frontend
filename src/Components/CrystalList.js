@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom"; // Import the Link component
 
+
 const CrystalList = () => {
   const [crystals, setCrystals] = useState([]);
 
