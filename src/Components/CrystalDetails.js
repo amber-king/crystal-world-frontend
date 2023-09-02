@@ -22,7 +22,7 @@ const CrystalDetails = () => {
     }
   }, [id]);
 
-  // TODO: code hor handle delete through connected running backend local running server
+  // TODO: code for handle delete through connected running backend local running server
   const handleDelete = async () => {
     try {
       // a DELETE request to the local server's delete endpoint

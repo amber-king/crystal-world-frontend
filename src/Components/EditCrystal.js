@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import crystalsData from "../crystalsData"
 
-const EditCrystal = () => {
+const EditCrystal = ({useBackend}) => {
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -30,11 +31,25 @@ const EditCrystal = () => {
 
   const hardnessOptions = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
 
+
   useEffect(() => {
-    const fetchCrystal = async () => {
+    const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:3001/crystals/${id}`);
-        const data = await response.json();
+        let data;
+        if (useBackend) {
+          // Fetch crystal data from your backend API by replacing this URL with your actual API endpoint
+          const response = await fetch(`http://localhost:3001/crystals/${id}`);
+          if (response.ok) {
+            data = await response.json();
+          } else {
+            console.error(`Error fetching crystal data: ${response.status}`);
+            return;
+          }
+        } else {
+          // Use mock data for testing - crystals data obj array of data used here
+          data = crystalsData.find((crystal) => crystal.id === parseInt(id));
+        }
+
         setCrystal(data);
         setFormData({
           name: data.name,
@@ -42,14 +57,16 @@ const EditCrystal = () => {
           transparency: data.transparency,
           luster_name: data.luster_name,
           hardness: data.hardness,
+          healing_features: data.healing_features,
         });
       } catch (error) {
-        console.error("Error fetching crystal:", error);
+        console.error("Error fetching crystal data:", error);
       }
     };
 
-    fetchCrystal();
-  }, [id]);
+    fetchData();
+  }, [id, useBackend]);
+
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -72,10 +89,11 @@ const EditCrystal = () => {
       });
 
       if (response.ok) {
+        console.log("Crystal edited successfully!");
         navigate(`/crystals/${id}`);
       }
     } catch (error) {
-      console.error("Error editing crystal:", error);
+      console.error("Error editing crystal - no backend connected:", error);
     }
   };
 

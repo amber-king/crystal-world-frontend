@@ -18,19 +18,7 @@ const CrystalList = () => {
     Resinous: "Resinous",
   };
 
-  useEffect(() => {
-    // fetchCrystals();
-  }, []);
-
-  // const fetchCrystals = async () => {
-  //   try {
-  //     const response = await fetch("http://localhost:3001/crystals/");
-  //     const data = await response.json();
-  //     setCrystals(data);
-  //   } catch (error) {
-  //     console.error("Error fetching crystals:", error);
-  //   }
-  // };
+  useEffect(() => {}, []);
 
   return (
     <div className="CrystalList">

@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-const CrystalForm = () => {
+const CrystalForm = ({ useBackend, crystalId }) => {
   const navigate = useNavigate(); // Hook to handle navigation
 
   const [formData, setFormData] = useState({
@@ -28,6 +28,27 @@ const CrystalForm = () => {
 
   const hardnessOptions = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
 
+  useEffect(() => {
+    if (crystalId) {
+      // Fetch data for editing if an ID is provided
+      fetchCrystalData(crystalId);
+    }
+  }, [crystalId]);
+
+  const fetchCrystalData = async (id) => {
+    try {
+      const response = await fetch(`http://localhost:3001/crystals/${id}`);
+      if (response.ok) {
+        const data = await response.json();
+        setFormData(data);
+      } else {
+        console.error(`Error fetching crystal data: ${response.status}`);
+      }
+    } catch (error) {
+      console.error("Error fetching crystal data:", error);
+    }
+  };
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData({
@@ -40,21 +61,44 @@ const CrystalForm = () => {
     event.preventDefault();
 
     try {
-      // calls a POST request to all crystal page
-      const response = await fetch("http://localhost:3001/crystals/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      if (useBackend) {
+        // Send a POST request to your backend API if creating a new crystal
+        // or a PUT request if editing an existing one
+        const method = crystalId ? "PUT" : "POST";
+        const apiUrl = crystalId
+          ? `http://localhost:3001/crystals/${crystalId}`
+          : "http://localhost:3001/crystals/";
+
+        const response = await fetch(apiUrl, {
+          method,
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
+
+        if (!response.ok) {
+          console.error("Error submitting form:", response.status);
+          return;
+        }
+      } else {
+        // Update the mock data if not using the backend
+        // Handle mock data updates based on whether you are creating or editing
+        // This is a placeholder; you should replace it with your logic
+        if (crystalId) {
+          // Editing an existing crystal
+          // Update the mock data based on the crystalId
+        } else {
+          // Creating a new crystal
+          // Update the mock data by adding the new crystal
+        }
+      }
 
       // Simulate API call or data processing
       // You can replace this with your actual API call
       // For this example, we will just navigate back to the home page
-      if (response.ok) {
-        navigate("/crystals");
-      }
+      navigate("/crystals");
+      console.log(`Crystal ${crystalId ? "updated" : "created"} successfully!`);
     } catch (error) {
       console.error("Error submitting form:", error);
     }
