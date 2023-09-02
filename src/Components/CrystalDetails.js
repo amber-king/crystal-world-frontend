@@ -9,42 +9,45 @@ const CrystalDetails = () => {
   const [crystal, setCrystal] = useState(null);
 
   useEffect(() => {
-    const selectedCrystal = crystalsData.find(
-      (crystal) => crystal.id === parseInt(id)
-    );
+    if (crystalsData) {
+      const selectedCrystal = crystalsData.find(
+        (crystal) => crystal.id === parseInt(id)
+      );
 
-    if (selectedCrystal) {
-      setCrystal(selectedCrystal);
-    } else {
-      console.error("Crystal not found");
+      if (selectedCrystal) {
+        setCrystal(selectedCrystal);
+      } else {
+        console.error("Crystal not found");
+      }
     }
-    // const fetchCrystal = async () => {
-    //   try {
-    //     const response = await fetch(`http://localhost:3001/crystals/${id}`);
-    //     const data = await response.json();
-    //     setCrystal(data);
-    //   } catch (error) {
-    //     console.error("Error fetching crystal:", error);
-    //   }
-    // };
+  }, [id]);
 
-    // fetchCrystal(); // Call the fetchCrystal function inside useEffect
-  }, [id]); // Add id to the dependency array
-
+  // TODO: code hor handle delete through connected running backend local running server
   const handleDelete = async () => {
     try {
-      const updateCrystals = crystalsData.filter(
-        (crystal) => crystal.id !== parseInt(id)
-      );
-      // const response = await fetch(`http://localhost:3001/crystals/${id}`, {
-      //   method: "DELETE",
-      // });
+      // a DELETE request to the local server's delete endpoint
+      const response = await fetch(`http://localhost:3001/crystals/${id}`, {
+        method: "DELETE",
+      });
 
-      // if (response.ok) {
-      setCrystal(updateCrystals);
-      navigate("/crystals");
-      // }s
+      if (response.ok) {
+        // The crystal was successfully deleted on the server - this is logged in the server inspect console.log
+        // ! BUT crystal will still appear when redirected back to all crystals b/c that link is connected to mock data NOT backend data tables
+
+        console.log("Crystal deleted successfully");
+
+        // removes the crystal from the UI locally
+        // ! not needed since the mockdata will always show by default
+        setCrystal(null);
+
+        // Navigate back to the crystals list
+        navigate("/crystals");
+      } else {
+        // Handle the case where the server responds with an error
+        console.error("Error deleting crystal:", response.status);
+      }
     } catch (error) {
+      // Handle network errors or other unexpected errors
       console.error("Error deleting crystal:", error);
     }
   };

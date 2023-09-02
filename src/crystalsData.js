@@ -1,5 +1,5 @@
-// mockData.js - for CRUD functionality to work on this frontend
-// ! backend deploy link is not suitable to grasp the data and this frontend was strictly fetching from the LOCAL backend - this makes the frontend work on deployment end
+// mockData.js - for display of all crystals & crystals details
+// ! backend deploy link is not suitable to grasp the data and this frontend was strictly fetching from the LOCAL backend for the U & D functionality of CRUD - this makes the frontend work on deployment end for display purposes
 
 const crystalsData = [
   {
