@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import crystalsData from "../crystalsData"
+import crystalsData from "../crystalsData"; // import of mock crystal data
 
-const EditCrystal = ({useBackend}) => {
+const EditCrystal = ({ useBackend }) => {
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -14,7 +14,7 @@ const EditCrystal = ({useBackend}) => {
     luster_name: "",
     hardness: "",
     healing_features: "",
-  });
+  }); // states to handle forms fields for editing
 
   // Define the luster and hardness options directly in the component
   const lusterOptions = [
@@ -31,13 +31,12 @@ const EditCrystal = ({useBackend}) => {
 
   const hardnessOptions = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
 
-
   useEffect(() => {
     const fetchData = async () => {
       try {
         let data;
         if (useBackend) {
-          // Fetch crystal data from your backend API by replacing this URL with your actual API endpoint
+          // Fetch crystal data from your backend API when running
           const response = await fetch(`http://localhost:3001/crystals/${id}`);
           if (response.ok) {
             data = await response.json();
@@ -45,8 +44,8 @@ const EditCrystal = ({useBackend}) => {
             console.error(`Error fetching crystal data: ${response.status}`);
             return;
           }
+          // otherwise testing with mock data - crystals data obj array of data used here
         } else {
-          // Use mock data for testing - crystals data obj array of data used here
           data = crystalsData.find((crystal) => crystal.id === parseInt(id));
         }
 
@@ -67,7 +66,6 @@ const EditCrystal = ({useBackend}) => {
     fetchData();
   }, [id, useBackend]);
 
-
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData({
@@ -78,7 +76,7 @@ const EditCrystal = ({useBackend}) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+    // edit functionality for selected crystals - when backend server is listening
     try {
       const response = await fetch(`http://localhost:3001/crystals/${id}`, {
         method: "PUT",

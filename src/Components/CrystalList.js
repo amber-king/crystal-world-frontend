@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom"; // Import the Link component
-import crystalsData from "../crystalsData";
+import crystalsData from "../crystalsData"; // import of mock data
 
 const CrystalList = () => {
   const [crystals, setCrystals] = useState(crystalsData);

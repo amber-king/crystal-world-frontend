@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import crystalsData from "../crystalsData";
+import crystalsData from "../crystalsData"; // imports mock crystal data made for frontend
 
 const CrystalDetails = () => {
   const { id } = useParams();
@@ -8,6 +8,7 @@ const CrystalDetails = () => {
 
   const [crystal, setCrystal] = useState(null);
 
+  // fetchs one crysta via mock data
   useEffect(() => {
     if (crystalsData) {
       const selectedCrystal = crystalsData.find(

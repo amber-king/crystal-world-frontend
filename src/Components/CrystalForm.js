@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import crystalsData from "../crystalsData";
 
 const CrystalForm = ({ useBackend, crystalId }) => {
   const navigate = useNavigate(); // Hook to handle navigation
@@ -11,7 +12,7 @@ const CrystalForm = ({ useBackend, crystalId }) => {
     luster_name: "",
     hardness: "",
     healing_features: "",
-  });
+  }); // state for handling new crystal form
 
   // Define the luster and hardness options directly in the component
   const lusterOptions = [
@@ -30,11 +31,12 @@ const CrystalForm = ({ useBackend, crystalId }) => {
 
   useEffect(() => {
     if (crystalId) {
-      // Fetch data for editing if an ID is provided
+      // Fetch data for editing if an ID exist
       fetchCrystalData(crystalId);
     }
   }, [crystalId]);
 
+  // TODO: fetches crystaldata via backend local server running
   const fetchCrystalData = async (id) => {
     try {
       const response = await fetch(`http://localhost:3001/crystals/${id}`);
@@ -49,6 +51,7 @@ const CrystalForm = ({ useBackend, crystalId }) => {
     }
   };
 
+  // handles edit updates for crystals
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData({
@@ -57,13 +60,13 @@ const CrystalForm = ({ useBackend, crystalId }) => {
     });
   };
 
+  // handle submit for adding a new crystal & checking for existing crystal in the mockdata
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
+      // * if the backend local server is running - this is ran through
       if (useBackend) {
-        // Send a POST request to your backend API if creating a new crystal
-        // or a PUT request if editing an existing one
         const method = crystalId ? "PUT" : "POST";
         const apiUrl = crystalId
           ? `http://localhost:3001/crystals/${crystalId}`
@@ -81,22 +84,28 @@ const CrystalForm = ({ useBackend, crystalId }) => {
           console.error("Error submitting form:", response.status);
           return;
         }
+        // * otherwise this will occur - giving a "mocked update" to the mock data
+        // ! will not show an edited crystal but will redirect back to the chosen crystal
       } else {
-        // Update the mock data if not using the backend
-        // Handle mock data updates based on whether you are creating or editing
-        // This is a placeholder; you should replace it with your logic
-        if (crystalId) {
-          // Editing an existing crystal
-          // Update the mock data based on the crystalId
-        } else {
-          // Creating a new crystal
-          // Update the mock data by adding the new crystal
+        if (!crystalId) {
+          // Generate a unique ID for the new crystal
+          const maxId = Math.max(...crystalsData.map((crystal) => crystal.id));
+          const newCrystalId = maxId + 1;
+
+          // Create a new crystal object using the formData and generated ID
+          const newCrystal = {
+            id: newCrystalId,
+            ...formData,
+          };
+
+          // Update your mock data array by adding the new crystal
+          const updatedMockData = [...crystalsData, newCrystal];
+
+          // Update your mock data array with the new crystal
+          setFormData(updatedMockData);
         }
       }
 
-      // Simulate API call or data processing
-      // You can replace this with your actual API call
-      // For this example, we will just navigate back to the home page
       navigate("/crystals");
       console.log(`Crystal ${crystalId ? "updated" : "created"} successfully!`);
     } catch (error) {
