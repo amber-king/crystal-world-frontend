@@ -18,8 +18,7 @@ const About = () => {
           <h2>Hi, I'm Amber King 😁👋🏾</h2>
 
           <h3>
-            Currently enrolled and finishing up my role as a fellow at Pursuit
-            Fellowship. I created this application to work on my Full Stack Web
+           I created this application to work on my Full Stack Web
             Design skills. The focus of this application was to create a CRUD
             informational site about crystals thats user-friendly, with simple
             and clean design along with an switch to dark mode to minimize eye

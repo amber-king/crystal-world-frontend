@@ -8,7 +8,7 @@ const CrystalDetails = () => {
 
   const [crystal, setCrystal] = useState(null);
 
-  // fetchs one crysta via mock data
+  // fetchs one crystal via mock data
   useEffect(() => {
     if (crystalsData) {
       const selectedCrystal = crystalsData.find(
